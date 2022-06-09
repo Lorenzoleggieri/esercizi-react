@@ -7,6 +7,10 @@ export class UncontrolledLogin extends React.Component {
 		LoginButton: false,
 	}
 
+    componentDidMount() {
+		this._formRef.current.elements.username.focus()
+	}
+
 	Login = (event) => {
 		event.preventDefault()
 
@@ -29,19 +33,18 @@ export class UncontrolledLogin extends React.Component {
 	render() {
 		return (
 			<form onSubmit={this.Login} ref={this._formRef}>
-				<input data-testid="username" name="username" onChange={this.LoginButtonEnabled} />
+				<input name="username" onChange={this.LoginButtonEnabled} />
 				<input
-					data-testid="password"
 					name="password"
 					type="password"
 					onChange={this.LoginButtonEnabled}
 				/>
-				<input data-testid="remember" name="remember" type="checkbox" />
+				<input name="remember" type="checkbox" />
 
-				<button type="submit" data-testid="login" disabled={!this.state.LoginButton}>
+				<button type="submit" disabled={!this.state.LoginButton}>
 					Login
 				</button>
-				<button type="reset" data-testid="reset">
+				<button type="reset">
 					Reset
 				</button>
 			</form>
