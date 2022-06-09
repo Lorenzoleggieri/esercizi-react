@@ -17,6 +17,10 @@ export class Login extends React.Component {
 			[name]: type === 'checkbox' ? checked : value,
 		})
 	}
+    
+    LoginButtonClick = () => {
+		this.props.onLogin(this.state)
+	}
 
 	render() {
 		return (
@@ -37,8 +41,17 @@ export class Login extends React.Component {
 					checked={this.state.remember}
 					onChange={this.handleInputChange}
 				/>
-
                 
+                
+                <button
+					data-testid="login"
+					disabled={!this.state.username || !this.state.password}
+					onClick={this.LoginButtonClick}
+				>
+					Login
+				</button>
+
+
 			</div>
 		)
 	}
