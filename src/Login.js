@@ -17,9 +17,17 @@ export class Login extends React.Component {
 			[name]: type === 'checkbox' ? checked : value,
 		})
 	}
-    
+
     LoginButtonClick = () => {
 		this.props.onLogin(this.state)
+	}
+
+    ResetForm = () => {
+		this.setState({
+			username: '',
+			password: '',
+			remember: false,
+		})
 	}
 
 	render() {
@@ -49,6 +57,10 @@ export class Login extends React.Component {
 					onClick={this.LoginButtonClick}
 				>
 					Login
+				</button>
+
+                <button onClick={this.ResetForm}>
+					Reset
 				</button>
 
 
