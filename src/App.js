@@ -1,13 +1,26 @@
 import React from "react";
-import { Welcome } from "./Welcome.js";
-import { Login } from "./Login.js";
+import { TodoList } from "./TodoList.js";
 
 export class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<Welcome name="Ermenegildo" age="182" />
-				<Login />
+				<TodoList
+					render={(todos, handlerRemoveLiFromArray) => {
+						return (
+							<ul>
+								{todos.map((todo, index) => (
+									<li key={index}>
+										{todo}
+										<button onClick={handlerRemoveLiFromArray}>
+											Remove ToDo
+										</button>
+									</li>
+								))}
+							</ul>
+						);
+					}}
+				/>
 			</div>
 		);
 	}

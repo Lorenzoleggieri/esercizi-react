@@ -42,18 +42,7 @@ export class TodoList extends React.Component {
 					<button onClick={this.resetNewString}>Reset</button>
 				</form>
 
-				<ul>
-					{this.state.todos.map((todo, index) => {
-						return (
-							<li key={index}>
-								{todo}
-								<button onClick={() => this.handlerRemoveLiFromArray(index)}>
-									Remove
-								</button>
-							</li>
-						);
-					})}
-				</ul>
+				{this.props.render(this.state.todos, this.handlerRemoveLiFromArray)}
 			</div>
 		);
 	}
