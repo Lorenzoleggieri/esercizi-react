@@ -2,3 +2,8 @@
     background-color: aqua;
     border: solid 3px black;
 }
+
+.containerStyle {
+    background-color: white;
+    border: 1px red solid;
+}
