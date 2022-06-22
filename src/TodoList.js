@@ -26,6 +26,11 @@ export class TodoList extends React.Component {
 		});
 	};
 
+	handlerRemoveLiFromArray = (event) => {
+		let temporarytoDos = [...this.state.todos];
+		temporarytoDos.splice(event, 1);
+		this.setState({ todos: temporarytoDos });
+	};
 	render() {
 		return (
 			<div>
@@ -39,7 +44,14 @@ export class TodoList extends React.Component {
 
 				<ul>
 					{this.state.todos.map((todo, index) => {
-						return <li key={index}>{todo}</li>;
+						return (
+							<li key={index}>
+								{todo}
+								<button onClick={() => this.handlerRemoveLiFromArray(index)}>
+									Remove
+								</button>
+							</li>
+						);
 					})}
 				</ul>
 			</div>
