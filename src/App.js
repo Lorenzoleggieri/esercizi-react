@@ -1,8 +1,8 @@
 import React from "react";
-import { TodoList } from "./TodoList";
+import { Welcome } from "./Welcome.js";
 
 export class App extends React.Component {
 	render() {
-		return <TodoList />;
+		return <Welcome name="Ermenegildo" age="182" />;
 	}
 }
