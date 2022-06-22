@@ -1,36 +1,39 @@
-import React from 'react'
+import React from "react";
 
 export class Login extends React.Component {
 	state = {
-		username: '',
-		password: '',
+		username: "",
+		password: "",
 		remember: false,
-	}
+	};
 
 	handleInputChange = (event) => {
-		const name = event.target.name
-		const value = event.target.value
-		const type = event.target.type
-		const checked = event.target.checked
+		const name = event.target.name;
+		const value = event.target.value;
+		const type = event.target.type;
+		const checked = event.target.checked;
 
 		this.setState({
-			[name]: type === 'checkbox' ? checked : value,
-		})
-	}
+			[name]: type === "checkbox" ? checked : value,
+		});
+	};
 
-    LoginButtonClick = () => {
-		this.props.onLogin(this.state)
-	}
+	LoginButtonClick = () => {
+		this.props.onLogin(this.state);
+	};
 
-    ResetForm = () => {
+	ResetForm = () => {
 		this.setState({
-			username: '',
-			password: '',
+			username: "",
+			password: "",
 			remember: false,
-		})
-	}
+		});
+	};
 
 	render() {
+		const MyStyle = {
+			backgroundColor: this.state.password.length < 8 ? "red" : "green",
+		};
 		return (
 			<div>
 				<input
@@ -40,6 +43,7 @@ export class Login extends React.Component {
 				/>
 				<input
 					name="password"
+					type="password"
 					value={this.state.password}
 					onChange={this.handleInputChange}
 				/>
@@ -49,22 +53,17 @@ export class Login extends React.Component {
 					checked={this.state.remember}
 					onChange={this.handleInputChange}
 				/>
-                
-                
-                <button
-					data-testid="login"
+
+				<button
+					style={MyStyle}
 					disabled={!this.state.username || !this.state.password}
 					onClick={this.LoginButtonClick}
 				>
 					Login
 				</button>
 
-                <button onClick={this.ResetForm}>
-					Reset
-				</button>
-
-
+				<button onClick={this.ResetForm}>Reset</button>
 			</div>
-		)
+		);
 	}
 }
