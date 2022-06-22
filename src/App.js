@@ -21,7 +21,7 @@ export class App extends React.Component {
 					<option value="en">ENGLISH</option>
 					<option value="it">ITALIANO</option>
 				</select>
-				<LanguageContext.Provider>
+				<LanguageContext.Provider value={this.state.language}>
 					<DisplayLanguage />
 				</LanguageContext.Provider>
 			</div>
