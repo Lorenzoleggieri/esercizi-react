@@ -19,6 +19,13 @@ export class TodoList extends React.Component {
 		console.log(todos);
 	};
 
+	resetNewString = (event) => {
+		event.preventDefault();
+		this.setState({
+			todos: [],
+		});
+	};
+
 	render() {
 		return (
 			<div>
@@ -27,6 +34,7 @@ export class TodoList extends React.Component {
 				<form onSubmit={this.addNewTodo}>
 					<input name="input" onChange={this.setNewString} required />
 					<button type="submit">Add the todo</button>
+					<button onClick={this.resetNewString}>Reset</button>
 				</form>
 
 				<ul>
