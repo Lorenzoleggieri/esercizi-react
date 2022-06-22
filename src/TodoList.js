@@ -10,8 +10,10 @@ export class TodoList extends React.Component {
 		this.setState({ newstring: event.target.value });
 	};
 
-	addNewTodo = () => {
+	addNewTodo = (event) => {
+		event.preventDefault();
 		let { todos, newstring } = this.state;
+		event.target.elements.input.value = "";
 		todos.push(newstring);
 		this.setState({ newstring: "" });
 		console.log(todos);
@@ -22,10 +24,10 @@ export class TodoList extends React.Component {
 			<div>
 				<h2>Todos:</h2>
 
-				<div>
-					<input onChange={this.setNewString} />
-					<button onClick={this.addNewTodo}>Add the todo</button>
-				</div>
+				<form onSubmit={this.addNewTodo}>
+					<input name="input" onChange={this.setNewString} required />
+					<button type="submit">Add the todo</button>
+				</form>
 
 				<ul>
 					{this.state.todos.map((todo, index) => {
