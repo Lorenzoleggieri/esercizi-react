@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { GithubUser } from "./GithubUser";
+import { Outlet, Link } from "react-router-dom";
 
 export function GithubUserList() {
 	const [userToPush, setUserToPush] = useState("");
@@ -17,9 +18,14 @@ export function GithubUserList() {
 		<div>
 			<input name="userToPush" onChange={inputBinder} />
 			<button onClick={arrayPush}>Aggiungi utente</button>
-			{usersArray.map((user, index) => (
-				<GithubUser key={index} username={user} />
-			))}
+			<ul>
+				{usersArray.map((user, index) => (
+					<li key={index}>
+						<Link to={`/users/${user}`}>{user}</Link>
+					</li>
+				))}
+			</ul>
+			<Outlet />
 		</div>
 	);
 }
