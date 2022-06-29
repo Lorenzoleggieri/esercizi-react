@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export function Counter(props) {
-	const [count, setCount] = setState(0);
+	const [count, setCount] = useState(0);
 
 	useEffect(() => {
 		counterHandler();
@@ -15,11 +15,11 @@ export function Counter(props) {
 		setInterval(() => {
 			setCount((count) => count + 1);
 		}, 1000);
-
-		return (
-			<div>
-				<h3>{count}</h3>
-			</div>
-		);
 	};
+
+	return (
+		<div>
+			<h3>Counter:{count}</h3>
+		</div>
+	);
 }
