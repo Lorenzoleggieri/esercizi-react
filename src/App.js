@@ -14,12 +14,16 @@ export class App extends React.Component {
 				<hr />
 				<Link to="/counter">Counter</Link>
 				<hr />
-				<Link to="users/LorenzoLeggieri">My Github Username</Link>
+				<Link to="users">Github Username Searcher</Link>
 				<hr />
 				<Routes>
 					<Route path="/" element={<Welcome name="Mauro" />} />
 					<Route path="counter" element={<Counter />} />
 					<Route path="users" element={<GithubUserList />}>
+						<Route
+							index
+							element={<p>please insert a name and click the button</p>}
+						/>
 						<Route path=":username" element={<ShowGithubUser />} />
 					</Route>
 					<Route path="*" element={<h1>PAGINA NON TROVATA</h1>} />
