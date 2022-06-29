@@ -5,7 +5,7 @@ export function CardDetails({
 }) {
 	const { model, year, color } = initialData;
 
-	const formRef = useRef(null);
+	const formRef = useRef();
 
 	useEffect(() => {
 		formRef.current.reset();
