@@ -22,7 +22,7 @@ export const store = configureStore(rootReducer);
 
 store.subscribe(() => {
 	console.log(store.getState());
-});
+}); //already done
 
 store.dispatch(incrementCounter(42));
 store.dispatch(addTodo({ id: 1, title: "compra pane", completed: true }));
