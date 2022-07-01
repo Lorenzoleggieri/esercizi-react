@@ -18,7 +18,7 @@ export function decrementCounter(by = 1) {
 	};
 }
 
-export function reset() {
+export function resetCounter() {
 	return {
 		type: RESET,
 	};
